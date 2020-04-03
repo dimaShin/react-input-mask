@@ -174,8 +174,8 @@ export function insertString(maskOptions, value, insertStr, insertPosition) {
     }
 
     if (insertPosition < value.length) {
-      if (maskChar || isInputFilled || insertPosition < prefix.length) {
-        value = value.slice(0, insertPosition) + insertCharacter + value.slice(insertPosition + 1);
+      if (maskChar || isInputFilled) {
+        value = value.slice(0, insertPosition) + insertCharacter + value.slice(insertPosition - 1);
       } else {
         value = value.slice(0, insertPosition) + insertCharacter + value.slice(insertPosition);
         value = formatValue(maskOptions, value);
